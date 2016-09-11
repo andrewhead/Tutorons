@@ -15,6 +15,7 @@ urlpatterns = patterns(
     url(r'^css/', include('tutorons.css.urls')),
     url(r'^python/', include('tutorons.python.urls')),
     url(r'^regex/', include('tutorons.regex.urls')),
+    url(r'^packages/', include('tutorons.packages.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(v1_api.urls)),
 )

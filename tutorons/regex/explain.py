@@ -24,6 +24,7 @@ def visualize(pattern):
     res = requests.get(settings.REGEX_SVG_ENDPOINT, params={'pattern': escaped})
 
     soup = BeautifulSoup(res.content)
+
     if len(soup.select('g.root')) == 0:
         raise InvalidRegexException(pattern, "pattern failed to parse with Regexper")
 

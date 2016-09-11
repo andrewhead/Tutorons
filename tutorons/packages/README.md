@@ -1,0 +1,6 @@
+The Package Tutoron detects and explains packages hosted on NPM. Explanations and details are pulled from various well-known sources on the internet.
+
+Currently, the package tutoron is not complete. The following bullet points outline the current state of the tutoron:
+- Tests do not currently run properly, since they require a PostgreSQL test database to run. This is because some of the calls to the models used in the tutoron rely on PostgreSQL syntax to perform the necessary queries. Either the queries should be rewritten into MySQL so that the tests can use a simple sqlite3 in-memory database, or a PostgreSQL test database needs to be properly set up on the local machine.
+- In addition, tests for this tutoron are not comprehensive and do not test all possible scenarios.
+- Queries to the clarence server to get the information for the tutoron take too long, specifically the complicated PostgreSQL query that computes the percentage of Google results that include code in their HTML bodies. These queries should be precomputed and stored into a new table and then fetched from there when needed. Clients definitely should not be waiting more than a few seconds to get the information they need, so we should prefetch the necessary information for all supported packages.

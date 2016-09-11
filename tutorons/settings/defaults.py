@@ -12,6 +12,7 @@ REGEX_SVG_ENDPOINT = "http://regexsvg.tutorons.com/"
 # Security
 
 SECRET_KEY_FILE = "/etc/django/tutorons.key"
+PASSWORD_FILE = "/etc/django/password.key"
 CORS_ORIGIN_ALLOW_ALL = True  # We're okay accepting connections from anywhere
 DEFAULT_DICTIONARY = os.path.join('tutorons', 'regex', 'google-10000-english-usa.txt')
 
@@ -26,7 +27,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'corsheaders',
     'tutorons.common',
-    'tutorons',
+    'tutorons.packages',
+    'tutorons'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -54,6 +56,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+    'logging': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'logs.sqlite3'),
     }
 }
 

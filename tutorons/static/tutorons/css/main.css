@@ -48,3 +48,22 @@ pre {
 .img-inline {
   height: 0.9em;
 }
+
+.example-code {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+  vertical-align: top;
+  background: #0000ff;
+  border: 1px solid rgba(0, 0, 255, 0.3);
+}
+
+#one, #two, #three {
+  width: 15px;
+  height: 15px;
+  margin-right: 3px;
+  background: #0000e0;
+  float: left;
+  border: 1px solid rgba(0, 0, 255, 0.3);
+}

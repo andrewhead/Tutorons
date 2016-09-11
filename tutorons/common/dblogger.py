@@ -25,7 +25,7 @@ class DbLogger(object):
 
     def log_query(self, request):
         _, path, ip = _get_request_metadata(request)
-        query = ServerQuery.objects.create(ip_addr=ip, path=path)
+        query = ServerQuery.objects.using('logging').create(ip_addr=ip, path=path)
         return query
 
     def log_region(self, request, query, region):
@@ -36,17 +36,17 @@ class DbLogger(object):
         block_type = region.node.name
 
         # Make a record for the block of text that is being explained
-        block, created = Block.objects.get_or_create(
+        block, created = Block.objects.using('logging').get_or_create(
             url=url,
             block_type=block_type,
             block_hash=block_hash
         )
         if created:
             block.block_test = region.node
-            block.save()
+            block.save(using='logging')
 
         # Create and save a new region
-        region = query.region_set.create(
+        region = query.region_set.using('logging').create(
             block=block,
             node=get_css_selector(region.node),
             start=region.start_offset,
@@ -59,4 +59,4 @@ class DbLogger(object):
 
     def update_server_end_time(self, query):
         query.end_time = datetime.datetime.now()
-        query.save()
+        query.save(using='logging')

@@ -1,7 +1,8 @@
 from defaults import *  # noqa
-
+import sys
 
 SECRET_KEY = open(SECRET_KEY_FILE).read()
+PASSWORD = open(PASSWORD_FILE).read()
 DEBUG = True
 TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
@@ -44,3 +45,13 @@ LOGGING = {
         },
     },
 }
+
+DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fetcher',
+        'USER': 'reader',
+        'PASSWORD': PASSWORD[0:len(PASSWORD)-1],
+        'HOST': 'clarence.eecs.berkeley.edu',
+        'PORT': '5432',
+    }
+DATABASES['logging'] = DATABASES['default']

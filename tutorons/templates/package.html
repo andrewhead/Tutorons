@@ -1,0 +1,21 @@
+<h3><b>{{ package }}</b></h3>
+<h5>{{ description }}</h5>
+
+<p><b>Documented since:</b> {{ documented_since }}</p>
+<p><b>Question age:</b> <img src="static/tutorons/img/sample_graph.png"> </p>
+
+<p><b>Response time:</b> {{ response_time }}</p>
+<p><b>Resolution time:</b> {{ resolution_time }}</p>
+<p><b>Number of questions:</b> {{ num_questions }}</p>
+<p><b>% of results with code:</b> {{ results_with_code }}</p>
+
+<div style="float: left; margin-right: 5px"><p><b>Example code:</b></p></div>
+
+<div id="one"></div>
+<div id="two"></div>
+<div id="three"></div>
+
+<br><br>
+<div><a href = {{url | safe}}>View the package's official documentation.</a></div>
+
+<button type="button" style="float: right">How does this compare?</button>

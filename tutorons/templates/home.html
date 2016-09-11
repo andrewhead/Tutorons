@@ -3,7 +3,8 @@
     <head>
         <title>Tutorons</title>
         <link rel='icon' href="{% static "tutorons/img/favicon.png" %}" />
-        <script src="//tutorons.com/static/tutorons-library.js"></script>
+        <!-- <script src="http://www.tutorons.com/static/tutorons-library.js"></script> -->
+        <script src="http://localhost:8000/dist/tutorons-library.js"></script>
         <script>
           document.addEventListener("DOMContentLoaded", function (event) {
             var tutoronsConnection = new tutorons.TutoronsConnection(window);
@@ -33,6 +34,7 @@
             <pre><code>$('table tr td').css('font-size', '12px');</code></pre>
             <pre><code>RewriteRule ^(scripts|assets|daemons)($|/) - [L]</code></pre>
             <pre><code>[item for item in range(len(a)) if a[item] == 'bar']</code></pre>
+            <p>Try using the nodemailer package!</p>
             <p>
             This highlighted code was detected by Tutorons that read this page and searched for code.
             The Tutorons then built explanations for the code and returned them to your browser, where they could be viewed in a tooltip.

@@ -2,6 +2,7 @@
 deps/*.jar
 deps/*.ser.gz
 venv
+env
 
 # Logging
 .*.log
